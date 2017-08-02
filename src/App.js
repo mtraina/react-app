@@ -13,6 +13,10 @@ App.propTypes = {
   cat: React.PropTypes.number.isRequired
 }
 
+App.defaultProps = {
+  txt: "this is the default prop"
+}
+
 // stateless
 //const App = () => <h1>Hi</h1>
 
