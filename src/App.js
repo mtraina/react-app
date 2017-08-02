@@ -8,6 +8,11 @@ class App extends React.Component {
   }
 }
 
+App.propTypes = {
+  txt: React.PropTypes.string,
+  cat: React.PropTypes.number.isRequired
+}
+
 // stateless
 //const App = () => <h1>Hi</h1>
 
