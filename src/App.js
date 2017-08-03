@@ -8,10 +8,16 @@ class App extends React.Component {
       txt: 'this is the state txt'
     }
   }
-
+  update(e){
+    this.setState({txt: e.target.value})
+  }
   render(){
-    let txt = this.props.txt
-    return <h1>{this.state.txt}</h1>
+    return (
+      <div>
+        <input type="text" onChange={this.update.bind(this)}/>
+        <h1>{this.state.txt}</h1>
+      </div>
+    )
   }
 }
 
