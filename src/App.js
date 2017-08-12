@@ -13,6 +13,9 @@ Title.propTypes = {
     if(!(propName in props)){
       return new Error(`missing ${propName}`)
     }
+    if(props[propName].length < 6){
+      return new Error(`the property ${propName} is too short`)
+    }
   }
 }
 
