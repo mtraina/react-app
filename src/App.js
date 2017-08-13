@@ -9,7 +9,7 @@ class App extends React.Component {
 
   update(e){
     this.setState({
-      a: this.refs.a.value,
+      a: this.a.value,
       b: this.refs.b.value
     });
   }
@@ -18,7 +18,7 @@ class App extends React.Component {
     return (
       <div>
       <input
-        ref="a"
+        ref={node => this.a = node}
         type="text"
         onChange={this.update}
       /> {this.state.a}
