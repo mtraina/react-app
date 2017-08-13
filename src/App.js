@@ -8,17 +8,26 @@ class App extends React.Component {
   }
 
   update(e){
-    this.setState({a: e.target.value});
+    this.setState({
+      a: this.refs.a.value,
+      b: this.refs.b.value
+    });
   }
 
   render(){
     return (
       <div>
       <input
+        ref="a"
         type="text"
         onChange={this.update}
       /> {this.state.a}
-      <h1>{this.state.currentEvent}</h1>
+      <hr/>
+      <input
+        ref="b"
+        type="text"
+        onChange={this.update}
+      /> {this.state.b}
       </div>
     )
   }
