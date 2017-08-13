@@ -16,6 +16,15 @@ class App extends React.Component {
       <div>
       <textarea
         onKeyPress={this.update}
+        onCopy={this.update}
+        onCut={this.update}
+        onPaste={this.update}
+        onFocus={this.update}
+        onBlur={this.update}
+        onDoubleClick={this.update}
+        onTouchStart={this.update}
+        onTouchMove={this.update}
+        onTouchEnd={this.update}
         cols="30"
         rows="10"
       />
