@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class App extends React.Component {
   constructor(){
@@ -9,7 +10,7 @@ class App extends React.Component {
 
   update(e){
     this.setState({
-      a: this.a.value,
+      a: ReactDOM.findDOMNode(this.a).value,
       b: this.refs.b.value
     });
   }
@@ -17,10 +18,9 @@ class App extends React.Component {
   render(){
     return (
       <div>
-      <input
-        ref={node => this.a = node}
-        type="text"
-        onChange={this.update}
+      <Input
+        ref={component => this.a = component}
+        update={this.update}
       /> {this.state.a}
       <hr/>
       <input
@@ -30,6 +30,12 @@ class App extends React.Component {
       /> {this.state.b}
       </div>
     )
+  }
+}
+
+class Input extends React.Component {
+  render(){
+    return <input type="text" onChange={this.props.update}/>
   }
 }
 
