@@ -11,17 +11,19 @@ class App extends React.Component {
     this.setState({val: this.state.val + 1});
   }
 
+  componentWillMount(){
+    console.log('component will mount')
+  }
+
+  componentDidMount(){
+    console.log('component did mount')
+  }
+
   render(){
     console.log('render')
     return (
       <button onClick={this.update}>{this.state.val}</button>
     )
-  }
-}
-
-class Input extends React.Component {
-  render(){
-    return <div><input ref="input" type="text" onChange={this.props.update}/></div>
   }
 }
 
