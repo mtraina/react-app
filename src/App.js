@@ -26,11 +26,12 @@ class App extends React.Component {
 
   componentDidMount(){
     console.log('component did mount')
-    console.log(ReactDOM.findDOMNode(this))
+    this.inc = setInterval(this.update, 500)
   }
 
   componentWillUnmount(){
     console.log('component did unmount')
+    clearInterval(this.inc)
   }
 }
 
@@ -52,4 +53,4 @@ class Wrapper extends React.Component {
   }
 }
 
-export default App
+export default Wrapper
