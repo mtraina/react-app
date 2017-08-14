@@ -14,12 +14,13 @@ class App extends React.Component {
 
   componentWillMount(){
     console.log('component will mount')
+    this.setState({m: 2})
   }
 
   render(){
     console.log('render')
     return (
-      <button onClick={this.update}>{this.state.val}</button>
+      <button onClick={this.update}>{this.state.val * this.state.m}</button>
     )
   }
 
@@ -50,4 +51,4 @@ class Wrapper extends React.Component {
   }
 }
 
-export default Wrapper
+export default App
