@@ -8,8 +8,9 @@ class App extends React.Component {
   }
 
   componentWillMount(){
-    fetch('https://swapi.co/api/people/?format=json', {mode: 'no-cors'})
-      .then(response => response.json)
+    fetch('http://localhost:3001/results')
+      .then(response => response.json())
+      //.then(r => console.log(r))
       .then(({results: items}) => this.setState({items}))
   }
 
