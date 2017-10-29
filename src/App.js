@@ -2,40 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class App extends React.Component {
-  constructor(){
-    super();
-    this.state = {items: []}
-  }
-
-  componentWillMount(){
-    fetch('http://localhost:3001/results')
-      .then(response => response.json())
-      //.then(r => console.log(r))
-      .then(({results: items}) => this.setState({items}))
-  }
-
-  filter(e){
-    this.setState({filter: e.target.value})
-  }
-
   render(){
-    let items = this.state.items
-    if(this.state.filter){
-      items = items.filter(item => 
-        item.name.toLowerCase()
-          .includes(this.state.filter.toLowerCase())
-      )
-    }
     return (
       <div>
-        <input type="text" onChange={this.filter.bind(this)}/>
-        {items.map(item => 
-          <Person key={item.name} person={item}/>)}
+        <Button>button</Button>
+        <hr/>
+        <Label>label</Label>
       </div>
     )
   }
 }
 
-const Person = props => <h4>{props.person.name}</h4>
+const Button = props => <h4>{props.children}</h4>
+
+class Label extends React.Component {
+  render(){
+    return (
+      <label>{this.props.children}</label>
+    )
+  }
+}
 
 export default App;
