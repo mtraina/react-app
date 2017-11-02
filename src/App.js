@@ -4,19 +4,31 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
   render(){
     return (
-      <Parent>
-        <div className="childA"></div>
-        <div className="childB"></div>
-      </Parent>
+      <Buttons>
+        <button value="A">A</button>
+        <button value="B">B</button>
+        <button value="C">C</button>
+      </Buttons>
     )
   }
 }
 
-class Parent extends React.Component {
+class Buttons extends React.Component {
+  constructor(){
+    super();
+    this.state = {selected: 'None'}
+  }
+  selectItem(selected){
+    this.setState(selected)
+  }
   render(){
-    let items = React.Children.forEach(this.props.children, child => console.log(child))
-    console.log(items)
-    return null
+    let items = this.props.children;
+    return (
+      <div>
+        <h2>You have selected: {this.state.selected}</h2>
+        {items}
+      </div>
+    )
   }
 }
 
