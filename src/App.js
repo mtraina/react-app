@@ -14,7 +14,7 @@ class App extends React.Component {
 
 class Parent extends React.Component {
   render(){
-    let items = this.props.children.map(child => child)
+    let items = React.Children.forEach(this.props.children, child => console.log(child))
     console.log(items)
     return null
   }
